@@ -7,7 +7,7 @@ class HomeBody extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return const Padding(
-      padding:  EdgeInsets.symmetric(vertical: 20.0,horizontal: 15),
+      padding:  EdgeInsets.symmetric(vertical: 40.0,horizontal:24),
       child: Column(
         children: [
           CustomAppBar(),
