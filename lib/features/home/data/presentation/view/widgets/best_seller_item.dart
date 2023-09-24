@@ -1,3 +1,4 @@
+import 'package:bookly_app/features/home/data/presentation/view/widgets/book_rating.dart';
 import 'package:flutter/material.dart';
 import '../../../../../../core/utils/assets.dart';
 import '../../../../../../core/utils/styles.dart';
@@ -28,18 +29,8 @@ class BestSellerItem extends StatelessWidget {
               const SizedBox(height: 3,),
               const  Text('3k Rowling',textAlign: TextAlign.start,style:Styles.titleStyle14),
               const SizedBox(height: 3),
-              Row(
-                children: [
-                  Center(child: Text('19.99 €',style:Styles.titleStyle20.copyWith(fontWeight: FontWeight.bold))),
-                const  Spacer(),
-                 const Icon(Icons.star,color: Colors.yellow,size: 15,),
-                 const SizedBox( width: 2,),
-                const  Text('4.0',style:Styles.titleStyle16),
-                 const SizedBox( width: 2,),
-                  Text('(2390)',style:Styles.titleStyle14.copyWith(color: Colors.white60),
-                  ),
-                ],
-              ),
+              Text('19.99 €',style:Styles.titleStyle20.copyWith(fontWeight: FontWeight.bold)),
+             const BookRating(mainAxisAlignment1: MainAxisAlignment.end,)
 
             ],
           ),

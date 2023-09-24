@@ -1,10 +1,7 @@
-import 'package:bookly_app/core/utils/assets.dart';
 import 'package:bookly_app/core/utils/styles.dart';
-import 'package:bookly_app/features/home/data/presentation/view/widgets/best_seller_item.dart';
 import 'package:bookly_app/features/home/data/presentation/view/widgets/custom_app_bar.dart';
 import 'package:bookly_app/features/home/data/presentation/view/widgets/custom_List_view_item.dart';
 import 'package:flutter/material.dart';
-
 import 'list_view_best_seller.dart';
 
 class HomeBody extends StatelessWidget {
