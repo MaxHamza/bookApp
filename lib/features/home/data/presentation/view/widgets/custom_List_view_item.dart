@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-
-import '../../../../../../core/utils/assets.dart';
 import 'custom_books_item.dart';
 
 class CustomFeatureListViewItem extends StatelessWidget {
