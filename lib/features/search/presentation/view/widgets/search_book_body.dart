@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-
 import '../../../../../core/utils/styles.dart';
 import '../../../../home/data/presentation/view/widgets/best_seller_item.dart';
 import 'custom_text_field.dart';
