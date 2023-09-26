@@ -4,6 +4,6 @@ import 'package:dartz/dartz.dart';
 import '../../../../core/utils/errors.dart';
 
 abstract class HomeRepo{
-  Future<Either<Failure,HomeModel>>fetchBestSellerBooks();
-  Future<Either<Failure,HomeModel>>fetchFeaturedBooks();
+  Future<Either<Failure,List<HomeModel>>>fetchNewsetBooks();
+  Future<Either<Failure,List<HomeModel>>>fetchFeaturedBooks();
 }
