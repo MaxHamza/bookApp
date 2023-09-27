@@ -1,5 +1,4 @@
 import 'package:dio/dio.dart';
-import 'package:flutter/material.dart';
 
 abstract class Failure{
   String errorName;
@@ -7,6 +6,7 @@ abstract class Failure{
 }
 class ServerError extends Failure{
   ServerError(super.errorName);
+
   factory ServerError.response(DioException dioException){
     switch (dioException.type) {
       case DioExceptionType.connectionTimeout:

@@ -9,8 +9,7 @@ class ImpHomeRepo implements HomeRepo{
   @override
   Future<Either<Failure,List<HomeModel>>>fetchNewsetBooks() async{
     try {
-      var data = await ApiService(Dio()).getBook(
-          'volumes?Filtering=free-ebooks&Sorting=newest&q=subject:programming');
+      var data = await ApiService(Dio()).getBook('volumes?Filtering=free-ebooks&Sorting=newest&q=subject:programming');
       List<HomeModel>bookItems = [];
       for (var items in data['items']) {
         bookItems.add(items);
@@ -28,8 +27,7 @@ class ImpHomeRepo implements HomeRepo{
   @override
   Future<Either<Failure, List<HomeModel>>> fetchFeaturedBooks() async{
     try {
-      var data = await ApiService(Dio()).getBook(
-          'volumes?Filtering=free-ebooks&q=subject:programming');
+      var data = await ApiService(Dio()).getBook('volumes?Filtering=free-ebooks&q=subject:programming');
       List<HomeModel>bookItems = [];
       for (var items in data['items']) {
         bookItems.add(items);
