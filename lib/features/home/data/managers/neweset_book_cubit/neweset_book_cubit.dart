@@ -1,6 +1,6 @@
 import 'package:bookly_app/features/home/data/repositry/home_repo.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import '../../models/home_model.dart';
+import '../../models/HomeModel.dart';
 part 'neweset_book_state.dart';
 
 class NewesetBookCubit extends Cubit<NewesetBookState> {
