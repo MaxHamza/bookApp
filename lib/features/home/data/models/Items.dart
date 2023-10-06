@@ -12,7 +12,7 @@ class Items {
       this.saleInfo, 
       this.accessInfo,});
 
-  Items.fromJson(dynamic json) {
+  Items.fromJson(json) {
     kind = json['kind'];
     id = json['id'];
     etag = json['etag'];

@@ -8,8 +8,8 @@ abstract class NewesetBookState {
 class NewesetBookInitial extends NewesetBookState {}
 class NewesetBookLoadingState extends NewesetBookState {}
 class NewesetBookSuccessState extends NewesetBookState {
- final List<HomeModel>data;
- const NewesetBookSuccessState(this.data);
+ final List<Items>data1;
+ const NewesetBookSuccessState(this.data1);
 }
 class NewesetBookFailureState extends NewesetBookState {
   final String errMessage;

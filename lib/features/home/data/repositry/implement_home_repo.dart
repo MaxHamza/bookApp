@@ -5,33 +5,33 @@ import 'package:bookly_app/features/home/data/repositry/home_repo.dart';
 import 'package:dartz/dartz.dart';
 import 'package:dio/dio.dart';
 
-import '../models/HomeModel.dart';
-
 class ImpHomeRepo implements HomeRepo{
  final ApiService apiService;
  ImpHomeRepo(this.apiService);
   @override
-  Future<Either<Failure,List<HomeModel>>>fetchNewsetBooks() async{
+  Future<Either<Failure, List<Items>>> fetchNewestBooks() async{
     try {
-      var data = await apiService.getBook('volumes?Filtering=free-ebooks&Sorting=newest&q=subject:programming');
-      List<HomeModel>bookItems = [];
+      var data = await ApiService(Dio()).getBook('volumes?Sorting=newest&q=programming&Filtering=free-ebooks');
+      List<Items>bookItems=[];
       for (var items in data['items']) {
-        bookItems.add(items);
+        var homeModel= Items.fromJson(items);
+        bookItems.add(homeModel);
       }
       return right(bookItems);
     }
-    catch(e){
-     if(e is DioException){
-     return left(ServerError.response(e));
-     }
-    return left(ServerError(e.toString()));
+    catch(e) {
+      if (e is DioException) {
+        return left(ServerError.response(e));
+      }
+      else {
+        return left(ServerError(e.toString()));
+      }
     }
   }
-
   @override
   Future<Either<Failure, List<Items>>> fetchFeaturedBooks() async{
     try {
-      var data = await ApiService(Dio()).getBook('volumes?Filtering=free-ebooks&q=subject:programming');
+      var data = await ApiService(Dio()).getBook('volumes?q=computer science&Filtering=free-ebooks');
       List<Items>bookItems=[];
       for (var items in data['items']) {
         var homeModel= Items.fromJson(items);

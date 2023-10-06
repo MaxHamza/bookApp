@@ -1,4 +1,5 @@
 import 'package:bookly_app/core/utils/styles.dart';
+import 'package:bookly_app/features/home/data/managers/neweset_book_cubit/neweset_book_cubit.dart';
 import 'package:bookly_app/features/home/data/presentation/view/widgets/custom_app_bar.dart';
 import 'package:bookly_app/features/home/data/presentation/view/widgets/custom_List_view_item.dart';
 import 'package:flutter/material.dart';
@@ -6,7 +7,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import '../../../managers/feature_books_cubit/feature_books_bloc_cubit.dart';
 import 'list_view_best_seller.dart';
 
-class  HomeBody extends StatefulWidget {
+class  HomeBody extends StatefulWidget{
 
   @override
   State<StatefulWidget> createState()=>homeBody();
@@ -15,6 +16,7 @@ class  HomeBody extends StatefulWidget {
   class homeBody extends State<HomeBody>{
   void initState() {
     BlocProvider.of<FeatureBooksBlocCubit>(context).featuredBooks();
+    BlocProvider.of<NewesetBookCubit>(context).fetchNewestBooks();
     super.initState();
   }
     @override
@@ -31,7 +33,7 @@ class  HomeBody extends StatefulWidget {
                   SizedBox(height: 10),
                   CustomFeatureListViewItem(),
                   SizedBox(height: 30,),
-                  Text('Best seller', style: Styles.titleStyle20),
+                  Text('Newest Books', style: Styles.titleStyle20),
                   SizedBox(height: 20,),
                 ],
               ),

@@ -1,6 +1,6 @@
 import 'package:bookly_app/features/home/data/repositry/home_repo.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import '../../models/HomeModel.dart';
+import '../../models/Items.dart';
 part 'neweset_book_state.dart';
 
 class NewesetBookCubit extends Cubit<NewesetBookState> {
@@ -8,7 +8,7 @@ class NewesetBookCubit extends Cubit<NewesetBookState> {
 final HomeRepo homeRepo;
   Future<void>fetchNewestBooks()async{
     emit(NewesetBookLoadingState());
-    var result=await homeRepo.fetchNewsetBooks();
+    var result=await homeRepo.fetchNewestBooks();
     result.fold((failure){
      emit(NewesetBookFailureState(failure.errorName));
     }, (success){
