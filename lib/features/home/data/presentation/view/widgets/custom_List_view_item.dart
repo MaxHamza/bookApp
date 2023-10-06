@@ -9,22 +9,19 @@ class CustomFeatureListViewItem extends StatelessWidget {
   const CustomFeatureListViewItem({super.key});
 
   @override
-  Widget build(BuildContext context) {
-    return BlocBuilder<FeatureBooksBlocCubit,FeatureBooksBlocState >(
+  Widget build(BuildContext context){
+    return BlocBuilder<FeatureBooksBlocCubit,FeatureBooksBlocState>(
       builder: (context, state) {
-        if (state is FeatureBooksSuccessState) {
+        if (state is FeatureBooksSuccessState){
           return SizedBox(
-            height: MediaQuery
-                .of(context)
-                .size
-                .height * 0.27,
+            height: MediaQuery.of(context).size.height * 0.27,
             child: ListView.builder(
               physics: const BouncingScrollPhysics(),
               scrollDirection: Axis.horizontal,
-              itemCount: 10,
               itemBuilder: (context, index) {
-                return const CustomFeatureBooksItem();
+                return  CustomFeatureBooksItem(imageUrl:state.featureBookSuccess[index].volumeInfo?.imageLinks?.smallThumbnail);
               },
+              itemCount:state.featureBookSuccess.length,
             ),
           );
         }

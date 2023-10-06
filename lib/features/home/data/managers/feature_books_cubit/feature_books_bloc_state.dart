@@ -1,5 +1,6 @@
 
  import '../../models/HomeModel.dart';
+import '../../models/Items.dart';
 
 abstract class FeatureBooksBlocState {
   const FeatureBooksBlocState();
@@ -11,6 +12,6 @@ class FeatureBooksFailureState extends FeatureBooksBlocState {
   final String errMessage;
 }
 class FeatureBooksSuccessState extends FeatureBooksBlocState {
-  final List<HomeModel>featureBookSuccess;
+  final List<Items> featureBookSuccess;
  const FeatureBooksSuccessState(this.featureBookSuccess);
 }

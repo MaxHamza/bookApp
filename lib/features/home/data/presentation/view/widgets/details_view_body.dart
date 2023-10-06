@@ -20,7 +20,7 @@ class DetailsViewBody extends StatelessWidget {
                 const  SizedBox(height: 20,),
               Padding(
                 padding:  EdgeInsets.symmetric(horizontal:MediaQuery.of(context).size.width*.32 ),
-                child:const CustomFeatureBooksItem(),
+                child: CustomFeatureBooksItem(imageUrl:'https://cdn.elearningindustry.com/wp-content/uploads/2016/05/top-10-books-every-college-student-read-e1464023124869.jpeg'),
               ),
                const SizedBox(height: 43),
                const Text('the Jungle Book',style: Styles.titleStyle30,),
@@ -52,3 +52,4 @@ const  Align(
     );
   }
 }
+//http//cdn.elearningindustry.com/wp-content/uploads/2016/05/top-10-books-every-college-student-read-e1464023124869.jpeg

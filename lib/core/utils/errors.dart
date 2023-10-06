@@ -1,4 +1,3 @@
-
 import 'package:dio/dio.dart';
 
 abstract class Failure{
@@ -6,7 +5,7 @@ abstract class Failure{
   Failure(this.errorName);
 }
 class ServerError extends Failure{
-  ServerError(super.errorName);
+  ServerError(String errorName) : super(errorName);
 
   factory ServerError.response(DioException dioException){
     switch (dioException.type) {
@@ -19,8 +18,7 @@ class ServerError extends Failure{
       case DioExceptionType.badCertificate:
         return ServerError('your connection is not private,please try again');
       case DioExceptionType.badResponse:
-        return ServerError('your connection is not private,please try again');
-          //ServerError.fromResponse(dioException.response!.statusCode!,dioException.response!.data);
+          return ServerError.fromResponse(dioException.response!.hashCode,dioException.response!.data);
       case DioExceptionType.cancel:
         return ServerError('your connection is cancelled,please try later');
       case DioExceptionType.connectionError:
@@ -29,18 +27,18 @@ class ServerError extends Failure{
         return ServerError('please try later');
     }
   }
-  // factory ServerError.fromResponse(int statusCode,var response){
-  //   if(statusCode==400||statusCode==401||statusCode==403){
-  //     return ServerError((response['error']['code']).toString());
-  //   }
-  //   else if(statusCode==404){
-  //     return ServerError('your request is not found');
-  //   }
-  //   else if(statusCode==500){
-  //     return ServerError('Internal server error ,please try later');
-  //   }
-  //   else{
-  //     return ServerError('Opps there was an error ,please try again');
-  //   }
-  // }
+  factory ServerError.fromResponse(int statusCode, dynamic response) {
+    if (statusCode == 400 || statusCode == 401 || statusCode == 403) {
+      //final result = json.decode(response.body.toString());
+        return ServerError(response['error']['errors'][0]['message']);
+      }
+    else if (statusCode == 404) {
+      return ServerError('Your request is not found');
+    } else if (statusCode == 500) {
+      return ServerError('Internal server error, please try later');
+    } else {
+      return ServerError('Oops, there was an error, please try again');
+    }
+  }
+
 }
