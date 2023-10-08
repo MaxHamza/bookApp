@@ -10,11 +10,11 @@ class BestSellerItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return  Row(
-      children: [
+    return Padding(padding:const EdgeInsets.only(bottom: 7),child:Row(
+      children:[
         AspectRatio(
           aspectRatio:2.5/4,
-          child: CachedImage(imageUrl: items?.volumeInfo?.imageLinks?.thumbnail,)
+          child: CachedImage(imageUrl: items?.volumeInfo?.imageLinks?.thumbnail,),
         ),
         const SizedBox(width: 15,),
         Expanded(
@@ -29,11 +29,11 @@ class BestSellerItem extends StatelessWidget {
                 Text(items!.volumeInfo!.authors![0],textAlign: TextAlign.start,style:Styles.titleStyle14),
               const SizedBox(height: 3),
               Text('Free',style:Styles.titleStyle20.copyWith(fontWeight: FontWeight.bold)),
-             const BookRating(mainAxisAlignment1: MainAxisAlignment.end,averageRating:0,countRating:0,)
+             const BookRating(mainAxisAlignment1: MainAxisAlignment.end,averageRating:0,countRating:0,),
             ],
           ),
-        )
+        ),
       ],
-    );
+    ));
   }
 }

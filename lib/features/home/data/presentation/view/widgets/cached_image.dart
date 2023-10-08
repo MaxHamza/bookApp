@@ -6,9 +6,10 @@ class CachedImage extends StatelessWidget {
  final String?imageUrl;
   @override
   Widget build(BuildContext context) {
-    return CachedNetworkImage(imageUrl: imageUrl??'https://cdn.elearningindustry.com/wp-content/uploads/2016/05/top-10-books-every-college-student-read-e1464023124869.jpeg',
+    return  ClipRRect(borderRadius:const BorderRadius.all(Radius.circular(16)),child: CachedNetworkImage(imageUrl: imageUrl??'https://cdn.elearningindustry.com/wp-content/uploads/2016/05/top-10-books-every-college-student-read-e1464023124869.jpeg',
       fit: BoxFit.fill,
       errorWidget: (context, url, error) =>const Icon(Icons.error),
+    ),
     );
   }
 }

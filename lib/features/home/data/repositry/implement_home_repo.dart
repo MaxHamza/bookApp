@@ -48,4 +48,24 @@ class ImpHomeRepo implements HomeRepo{
       }
     }
   }
+ @override
+ Future<Either<Failure, List<Items>>> fetchSimilarBooks({required String category}) async{
+   try {
+     var data = await ApiService(Dio()).getBook('volumes?Sorting=relevance&q=computer science&Filtering=free-ebooks');
+     List<Items>bookItems=[];
+     for (var items in data['items']) {
+       var homeModel= Items.fromJson(items);
+       bookItems.add(homeModel);
+     }
+     return right(bookItems);
+   }
+   catch(e) {
+     if (e is DioException) {
+       return left(ServerError.response(e));
+     }
+     else {
+       return left(ServerError(e.toString()));
+     }
+   }
+ }
 }

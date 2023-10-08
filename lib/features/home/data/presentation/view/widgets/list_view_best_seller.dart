@@ -1,5 +1,4 @@
 import 'package:bookly_app/features/home/data/presentation/view/widgets/failure_widget.dart';
-import 'package:bookly_app/features/home/data/presentation/view/widgets/loading_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
@@ -21,11 +20,9 @@ class BestSellerListView extends StatelessWidget {
             height: MediaQuery.of(context).size.height * .19,
             child: GestureDetector(
                 onTap: () {
-                  //         Get.to(const DetailsView());
-                  GoRouter.of(context).push('/DetailsView');
+                  GoRouter.of(context).push('/DetailsView',extra:state.data1[index]);
                 },
                 child:BestSellerItem(items:state.data1[index],)),
-
           );
         },
         itemCount: state.data1.length,
@@ -35,7 +32,7 @@ class BestSellerListView extends StatelessWidget {
       return FailureWidget(state: state);
     }
     else{
-      return const LoadingWidget();
+      return const Center(child: CircularProgressIndicator(),);
     }
   },
 );
