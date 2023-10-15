@@ -5,8 +5,8 @@ import 'package:flutter/material.dart';
 import '../../../../../../core/utils/styles.dart';
 
 class BestSellerItem extends StatelessWidget {
-  const BestSellerItem({super.key, this.items});
- final Items ?items;
+  const BestSellerItem({super.key,required this.items});
+ final Items? items;
 
   @override
   Widget build(BuildContext context) {
@@ -22,13 +22,14 @@ class BestSellerItem extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             mainAxisAlignment: MainAxisAlignment.start,
             children: [
-               const SizedBox(height: 20,),
+               const SizedBox(height: 13,),
               Text(items!.volumeInfo!.title!,maxLines: 2,style:Styles.titleStyle20.copyWith(fontFamily:"GT"),
-                overflow:TextOverflow.ellipsis ,),
+                overflow:TextOverflow.ellipsis),
               const SizedBox(height: 3,),
                 Text(items!.volumeInfo!.authors![0],textAlign: TextAlign.start,style:Styles.titleStyle14),
               const SizedBox(height: 3),
               Text('Free',style:Styles.titleStyle20.copyWith(fontWeight: FontWeight.bold)),
+              const SizedBox(height: 8),
              const BookRating(mainAxisAlignment1: MainAxisAlignment.end,averageRating:0,countRating:0,),
             ],
           ),

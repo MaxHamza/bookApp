@@ -17,7 +17,7 @@ class BestSellerListView extends StatelessWidget {
         physics: const NeverScrollableScrollPhysics(),
         itemBuilder: (context, index) {
           return SizedBox(
-            height: MediaQuery.of(context).size.height * .19,
+            height: MediaQuery.of(context).size.height *.19,
             child: GestureDetector(
                 onTap: () {
                   GoRouter.of(context).push('/DetailsView',extra:state.data1[index]);

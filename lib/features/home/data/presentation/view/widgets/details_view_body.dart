@@ -23,11 +23,12 @@ class DetailsViewBody extends StatelessWidget {
                 const  SizedBox(height: 20,),
                 Padding(
                   padding:EdgeInsets.symmetric(horizontal:MediaQuery.of(context).size.width*.28 ),
-                  child: CustomFeatureBooksItem(imageUrl:items.volumeInfo?.imageLinks?.thumbnail??'https://cdn.elearningindustry.com/wp-content/uploads/2016/05/top-10-books-every-college-student-read-e1464023124869.jpeg'),
+                  child: CustomFeatureBooksItem(imageUrl:items.volumeInfo?.imageLinks?.thumbnail??
+                      'https://cdn.elearningindustry.com/wp-content/uploads/2016/05/top-10-books-every-college-student-read-e1464023124869.jpeg'),
                 ),
                 const SizedBox(height: 43),
-                 Text(items.volumeInfo?.title??'',style: Styles.titleStyle30,textAlign: TextAlign.center,),
-                const SizedBox(height: 6,),
+                 Text(items.volumeInfo?.title??'',style: Styles.titleStyle30,textAlign: TextAlign.center,maxLines: 2,overflow:TextOverflow.ellipsis,),
+                const SizedBox(height: 10,),
                 Opacity(
                   opacity: 0.5,
                   child: Text(items.volumeInfo?.authors?[0]??'Hamza makksousa',style: Styles.titleStyle18.copyWith(fontWeight: FontWeight.w500,fontStyle: FontStyle.italic,
@@ -37,9 +38,9 @@ class DetailsViewBody extends StatelessWidget {
                 const SizedBox(height: 8,),
                 const BookRating(mainAxisAlignment1:MainAxisAlignment.center,),
                 SizedBox(height: MediaQuery.of(context).size.height*.03,),
-                const Padding(
-                  padding:  EdgeInsets.symmetric(horizontal: 16.0),
-                  child:  CompleteDetailsButton(),
+                 Padding(
+                  padding:const  EdgeInsets.symmetric(horizontal: 16.0),
+                  child:  CompleteDetailsButton(items: items,),
                 ),
                 const Expanded(child:  SizedBox(height: 50,)),
                 const  Align(
